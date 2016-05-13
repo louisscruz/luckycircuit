@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {RouterActive} from '../router-active';
+import {RouterActive} from '../../../router-active';
 
 @Component({
   // The selector is what angular internally uses

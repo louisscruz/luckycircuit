@@ -4,6 +4,8 @@ import {AppState} from '../app.service';
 import {Title} from './title';
 import {XLarge} from './x-large';
 
+import {FooterComponent} from '../footer';
+
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -16,7 +18,7 @@ import {XLarge} from './x-large';
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
   directives: [
-    XLarge
+    XLarge, FooterComponent
   ],
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [ ],

@@ -1,3 +1,16 @@
-<h1>Introduction to Algorithms</h1>
-{{route}}
-<router-outlet></router-outlet>
+<md-sidenav-layout class="sidenav-layout">
+  <md-sidenav #start mode="side" opened="true">
+    <left-sidenav>
+      <button md-button (click)="start.toggle()" class="md-primary">Hide chapters</button>
+    </left-sidenav>
+  </md-sidenav>
+  <md-sidenav #end align="end">
+    <right-sidenav></right-sidenav>
+  </md-sidenav>
+  <div class="sidenav-content">
+    <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
+    <button md-button (click)="start.toggle()" class="md-primary">Show chapters</button>
+    <router-outlet></router-outlet>
+  </div>
+  <footer></footer>
+</md-sidenav-layout>

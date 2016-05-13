@@ -1,9 +1,17 @@
 /*styles for home content only*/
+:host {
+  flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  display: flex;
+}
 .card-container{
     display: flex;
+    flex: 1;
+    flex-grow: 1;
     flex-direction: column;
     margin: 15px;
-    
+
     border: 2px dashed #FBC02D;
 }
 .sample-content{

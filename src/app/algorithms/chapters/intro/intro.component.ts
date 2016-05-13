@@ -8,6 +8,12 @@ import {Component} from '@angular/core';
   // We need to tell Angular's Dependency Injection which providers are in our app.
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [ ],
+  styles: [`
+    :host {
+      flex: 1;
+      flex-grow: 1;
+    }
+  `],
   // Our list of styles in our component. We may add more to compose many styles together
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   template: require('./intro.html')

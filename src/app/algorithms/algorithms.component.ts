@@ -1,17 +1,19 @@
 import {Component, DynamicComponentLoader, Injector} from '@angular/core';
 import {RouteConfig, RouteParams, RouterOutlet} from '@angular/router-deprecated';
 
+import {LeftSidenavComponent} from './sidenav/left-sidenav';
+import {RightSidenavComponent} from './sidenav/right-sidenav';
+import {FooterComponent} from '../footer';
+
 @Component({
-  selector: 'about',
-  directives: [RouterOutlet],
-  styles: [`
-    h1 {
-      font-family: Arial, Helvetica, sans-serif
-    }
-    md-card{
-      margin: 25px;
-    }
-  `],
+  selector: 'algorithms',
+  directives: [
+    RouterOutlet,
+    LeftSidenavComponent,
+    RightSidenavComponent,
+    FooterComponent
+  ],
+  styles: [require('./algorithms.css')],
   template: require('./algorithms.html')
 })
 @RouteConfig([
