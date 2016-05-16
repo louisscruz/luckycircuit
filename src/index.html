@@ -31,8 +31,19 @@
 
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
-
-
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+      extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js"],
+      TeX: {
+        extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      }
+    });
+  </script>
+  <script type="text/javascript" async
+    src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 </head>
 
 <body>

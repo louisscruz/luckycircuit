@@ -7,10 +7,12 @@
   <md-sidenav #end align="end">
     <right-sidenav></right-sidenav>
   </md-sidenav>
-  <div class="sidenav-content">
+  <div>
     <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
-    <button md-button (click)="start.toggle()" class="md-primary">Show chapters</button>
-    <router-outlet></router-outlet>
+    <button *ngIf="!start.opened" md-button (click)="start.toggle()" class="md-primary">Show chapters</button>
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <footer></footer>
 </md-sidenav-layout>

@@ -1,3 +1,4 @@
+<div class="wrapper">
 <ng-content></ng-content>
 <h2>{{title}}</h2>
 <div *ngFor="let link of links">
@@ -11,7 +12,7 @@
     </template>
     <template [ngSwitchWhen]="true">
       <div class="nav-block" router-active>
-        <a [routerLink]="['Algorithms', 'Intro']">{{link.text}}</a>
+        <a [routerLink]="['Algorithms', link.route]">{{link.text}}</a>
       </div>
     </template>
   </div>
@@ -27,10 +28,11 @@
         </template>
         <template [ngSwitchWhen]="true">
           <div class="nav-block" router-active>
-            <a [routerLink]="['Algorithms', 'Intro']">{{sublink.text}}</a>
+            <a [routerLink]="['Algorithms', sublink.route]">{{sublink.text}}</a>
           </div>
         </template>
       </div>
     </div>
   </div>
+</div>
 </div>

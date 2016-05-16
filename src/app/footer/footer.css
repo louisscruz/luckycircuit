@@ -1,4 +1,4 @@
 :host {
-  background-color: gray;
+  border-top: 2px dashed gray;
   padding: 12px;
 }

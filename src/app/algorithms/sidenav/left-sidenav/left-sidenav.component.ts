@@ -22,11 +22,14 @@ export class LeftSidenavComponent {
 
   constructor() {
     this.links = [{
-      'text': 'Introduction',
-      'route': 'Intro'
+      'text': 'Preface',
+      'route': 'Preface'
     }, {
       'text': 'I. Foundations',
       'sublinks': [{
+        'text': 'The Role of Algorithms',
+        'route': 'Role'
+      }, {
         'text': 'Growth of Functions'
       }, {
         'text': 'Divide and Conquer'

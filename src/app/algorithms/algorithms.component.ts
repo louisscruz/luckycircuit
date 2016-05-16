@@ -17,7 +17,8 @@ import {FooterComponent} from '../footer';
   template: require('./algorithms.html')
 })
 @RouteConfig([
-  { path: '/intro', name: 'Intro', loader: () => require('es6-promise!./chapters/intro')('AlgorithmsIntroComponent'), useAsDefault: true }
+  { path: '/preface', name: 'Preface', loader: () => require('es6-promise!./chapters/preface')('AlgorithmsPrefaceComponent'), useAsDefault: true },
+  { path: '/role', name: 'Role', loader: () => require('es6-promise!./chapters/foundations/role')('AlgorithmsRoleComponent') }
 ])
 export class Algorithms {
   constructor() {
