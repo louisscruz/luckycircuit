@@ -1,5 +1,6 @@
 <div class="chapter-section">
   <h1>Introduction</h1>
+  <h2>What is an algorithm</h2>
   <p>Put simply, an algorithm is a procedure that takes an <b>input</b> and generates an <b>output</b>. A <b>computational problem</b> states a desired relationship between the input and output. For example, a <b>sorting problem</b> is defined as:</p>
   <md-card>
     <h3>Input:</h3>
@@ -8,22 +9,13 @@
     <p [MathJax]="'A permutation \\( \\langle a^{\\prime}_1, a^{\\prime}_2,...,a^{\\prime}_n \\rangle \\), where \\(a^{\\prime}_1 \\leq a^{\\prime}_2 \\leq ... \\leq ... a^{\\prime}_n\\)'"></p>
   </md-card>
   <p>An algorithm is only deemed <b>correct</b> if, for every input instance, it halts on the correct output.</p>
-  <p>A <b>data structure</b> is a way to store and organize data.</p>
-  <codebox title="Ex. 1">
-    <pre ruby #rubyBlock>
-      <code class="ruby">
-        def thing #Comments
-        end
-
-        def other
-        end
-      </code>
-    </pre>
-    <pre javascript #javascriptBlock>
-      <code class="javascript">
-        var thing = 'test';
-        var other = 'other';
-      </code>
-    </pre>
-  </codebox>
+  <p>For instance, a sorting algorithm would only be considered correct if it had the following input-output relationship.</p>
+  <md-card>
+    <h3>Input:</h3>
+    <p [MathJax]="'\\( \\langle 23, 8, 4, 42, 16, 15 \\rangle\\)'"></p>
+    <h3>Output:</h3>
+    <p [MathJax]="'\\( \\langle 4, 8, 15, 16, 23, 42 \\rangle\\)'"></p>
+  </md-card>
+  <h2>Efficiency</h2>
+  <p>A fantastic example of the importance of algorithmic efficiency can be seen in <a href="https://projecteuler.net/problem=67">Project Euler #67</a>. In this problem, a brute force method might work well for a triangle four rows deep, but, when the triangle is expanded to one hundred rows, it would take more than twenty billion years to solve. To solve this problem efficiently, one has to use a technique called <i>dynamic programming</i>. Even in cases where the calculation time is not so drastic, a good programmer realizes that longer calculations result in increased expenses, both in terms of performance and expenses.</p>
 </div>

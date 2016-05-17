@@ -6,14 +6,10 @@ export class MathJaxDirective {
     @Input(' MathJax')
     texExpression: string;
 
-    constructor(private el: ElementRef) {
-    }
-    ngAfterViewInit() {
-      console.log(this.texExpression);
-    }
+    constructor(private el: ElementRef) {}
 
-    ngOnChanges() {
-       this.el.nativeElement.innerHTML = this.texExpression;
-       MathJax.Hub.Queue(['Typeset', MathJax.Hub, this.el.nativeElement]);
+    ngOnInit() {
+      this.el.nativeElement.innerHTML = this.texExpression;
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub, this.el.nativeElement]);
     }
 }

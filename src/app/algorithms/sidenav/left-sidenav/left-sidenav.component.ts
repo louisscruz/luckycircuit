@@ -30,7 +30,8 @@ export class LeftSidenavComponent {
         'text': 'The Role of Algorithms',
         'route': 'Role'
       }, {
-        'text': 'Growth of Functions'
+        'text': 'Getting Started',
+        'route': 'GettingStarted'
       }, {
         'text': 'Divide and Conquer'
       }]

@@ -1,0 +1,96 @@
+<div class="chapter-section">
+  <h1>Getting Started</h1>
+  <h2>Insertion Sort</h2>
+  <p>As previously stated, a sorting problem is defined as:</p>
+  <md-card>
+    <h3>Input:</h3>
+    <p [MathJax]="'A sequence of \\(n\\) numbers \\( \\langle a_1, a_2,...,a_n\\rangle \\)'"></p>
+    <h3>Output:</h3>
+    <p [MathJax]="'A permutation \\( \\langle a^{\\prime}_1, a^{\\prime}_2,...,a^{\\prime}_n \\rangle \\), where \\(a^{\\prime}_1 \\leq a^{\\prime}_2 \\leq ... \\leq ... a^{\\prime}_n\\)'"></p>
+  </md-card>
+  <p><b>Insertion sort</b> is an algorithm that efficiently sorts a small number of elements. It works by removing the first of the elements (on the left) and places compares it with each of the numbers to the right. Once a number is not less than the removed element, it's injected into that place. For the case of an original array of <span [MathJax]="'\\(\\langle5, 2, 4, 6, 1, 3\\rangle \\)'"></span>, the following operations will result from using insertion sort:</p>
+  <md-card>
+    <h3>Operation of Insertion Sort</h3>
+    <p [MathJax]="'a). \\(\\langle5, 2, 4, 6, 1, 3\\rangle \\)'"></p>
+    <p [MathJax]="'b). \\(\\langle2, 5, 4, 6, 1, 3\\rangle \\)'"></p>
+    <p [MathJax]="'c). \\(\\langle2, 4, 5, 6, 1, 3\\rangle \\)'"></p>
+    <p [MathJax]="'d). \\(\\langle2, 4, 5, 6, 1, 3\\rangle \\)'"></p>
+    <p [MathJax]="'e). \\(\\langle1, 2, 5, 4, 6, 3\\rangle \\)'"></p>
+    <p [MathJax]="'f). \\(\\langle1, 2, 3, 5, 4, 6\\rangle \\)'"></p>
+  </md-card>
+  <p>This algorithm in code looks like the following:</p>
+  <codebox title="Ex. 1">
+    <pre ruby #rubyBlock>
+      <code class="ruby">
+        array = [5, 2, 4, 6, 1, 3]
+
+        (1...array.length).each do |j|
+          key = array[j] # Start with the second element
+          # Insert array[j] into the sorted sequence array[0..j-1]
+          i = j - 1
+          while i >= 0 && array[i] > key do
+            array[i + 1] = array[i]
+            i -= 1
+          end
+          array[i + 1] = key
+        end
+      </code>
+    </pre>
+    <pre javascript #javascriptBlock>
+      <code class="javascript">
+        array = [5, 2, 4, 6, 1, 3];
+
+        for (let j = 1; j < array.length; j++) {
+          key = array[j];
+          // Insert array[j] into the sorted sequence array[0..j-1]
+          let i = j - 1;
+          while (i >= 0 && array[i] > key) {
+            array[i + 1] = array[i];
+            i -= 0;
+          }
+          array[i + 1] = key;
+        }
+      </code>
+    </pre>
+  </codebox>
+  <p>A <b>loop invariant</b> is a condition that is necessarily true immediately before and immediately after each iteration of a loop. The three considerations we must take are:</p>
+  <md-card>
+    <p><b>Initialization:</b> It is true prior to the first iteration of the loop.</p>
+    <p><b>Maintenance:</b> If it is true before an iteration of the loop, it remains true before the next iteration.</p>
+    <p><b>Termination:</b> When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct.</p>
+  </md-card>
+  <p>Before providing a more formal analysis of the previous code, there are a few terms that should be clarified here. <b>Objects</b> are data entities composed of <b>attributes</b>. These attributes <i>cascade</i>. If, for instance, <span [MathJax]="'\\(y = x.f\\)'"></span>, then <span [MathJax]="'\\(x.f.g\\) is the same as \\(y.g\\)'"></span></p>
+  <p>Boolean operators "and" (&&) and "or" (||) are <b>short circuiting</b>. This means that if one statement is false, the others will not be evaluated. For instance, if evaluating <i>(1 === 2 && 1 < 2)</i>, the first part will be evaluated, but the second will not.</p>
+  <h2>Analyzing Algorithms</h2>
+  <p>The primary concern of the analysis of algorithms is the measure of their computational time. The <b>random-access machine (<i>RAM</i></b>) model of computation is assumed to run without concurrency. That is, events run one after the other.</p>
+  <p>If a computer were to have a <i>sort</i> instruction, the computational time would be that of the completion of only one instruction. For an insightful analysis, however, we should consider which operations are typically available on computers. Some operations are:</p>
+  <ul>
+    <li>Arithmetic</li>
+    <ul>
+      <li>Add</li>
+      <li>Subtract</li>
+      <li>Multiply</li>
+      <li>Divide</li>
+      <li>Remainder</li>
+      <li>Floor</li>
+      <li>Ceiling</li>
+    </ul>
+    <li>Data Movement</li>
+    <ul>
+      <li>Load</li>
+      <li>Store</li>
+      <li>Copy</li>
+    </ul>
+    <li>Control</li>
+    <ul>
+      <li>Conditional branch</li>
+      <li>Unconditional branch</li>
+      <li>Subroutine call and return</li>
+    </ul>
+  </ul>
+  <p>Integer and floating point are the data types of the RAM model. For practical reasons, we have to assume that there are limits on the size of each word of data. When working with inputs of size <span [MathJax]="'\\(n\\)'"></span>, we assume that the integers are represented by <span [MathJax]="'\\(c \\lg n\\)'"></span> with a constant <span [MathJax]="'\\(c \\geq 1\\)'"></span>.</p>
+  <p>Issues exist with the application of algorithm analysis. Many features that exist in computers are not accounted for in our analysis. For instance, caches and virtual memory are not incorporated. A "shift left" instruction exists on most computers, where the cost is <span [MathJax]="'\\(2^k\\), with \\(k\\)'"></span> being the number of characters shifted. However, we will consider this operation to be operating in contant time when the shift is small enough.</p>
+  <h3>Analysis of Insertion Sort</h3>
+  <p>The amount of time required to complete algorithms depends very much on the input. The notion of <b>input size</b> depends on the context of the problem at hand. Most often, the number of items in the input is the natural measure. For others, it is the total number of bit that are needed to represent the input in ordinary binary notation.</p>
+  <p><b>Running time</b> is the number of steps required to complete an algorithm. For simplicity's sake, we'll imagine that a constant amount of time is required to execute each line of code.</p>
+</div>

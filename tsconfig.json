@@ -33,6 +33,8 @@
     "./src/app/about/about.spec.ts",
     "./src/app/about/index.ts",
     "./src/app/algorithms/algorithms.component.ts",
+    "./src/app/algorithms/chapters/foundations/getting-started/getting-started.component.ts",
+    "./src/app/algorithms/chapters/foundations/getting-started/index.ts",
     "./src/app/algorithms/chapters/foundations/role/index.ts",
     "./src/app/algorithms/chapters/foundations/role/role.component.ts",
     "./src/app/algorithms/chapters/preface/index.ts",

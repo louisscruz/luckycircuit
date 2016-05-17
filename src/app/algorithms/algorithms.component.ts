@@ -18,7 +18,8 @@ import {FooterComponent} from '../footer';
 })
 @RouteConfig([
   { path: '/preface', name: 'Preface', loader: () => require('es6-promise!./chapters/preface')('AlgorithmsPrefaceComponent'), useAsDefault: true },
-  { path: '/role', name: 'Role', loader: () => require('es6-promise!./chapters/foundations/role')('AlgorithmsRoleComponent') }
+  { path: '/role', name: 'Role', loader: () => require('es6-promise!./chapters/foundations/role')('AlgorithmsRoleComponent') },
+  { path: '/getting-started', name: 'GettingStarted', loader: () => require('es6-promise!./chapters/foundations/getting-started')('AlgorithmsGettingStartedComponent') }
 ])
 export class Algorithms {
   constructor() {
