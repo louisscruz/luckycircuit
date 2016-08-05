@@ -50,9 +50,7 @@ export const asyncRoutes: AsyncRoutes = {
 // Optimizations for initial loads
 // An array of callbacks to be invoked after bootstrap to prefetch async routes
 export const prefetchRouteCallbacks: Array<IdleCallbacks> = [
-  asyncRoutes['About'],
-  asyncRoutes['Blog'],
-  asyncRoutes['BlogIndex']
+  asyncRoutes['About']
    // es6-promise-loader returns a function
 ];
 
