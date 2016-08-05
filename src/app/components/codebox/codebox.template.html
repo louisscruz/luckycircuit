@@ -8,10 +8,10 @@
       {{selected.toUpperCase()}}
     </span>
   </md-card-subtitle>
-  <template [ngSwitchWhen]="'javascript'">
+  <template [ngSwitchCase]="'javascript'">
     <ng-content select="[javascript]"></ng-content>
   </template>
-  <template [ngSwitchWhen]="'ruby'">
+  <template [ngSwitchCase]="'ruby'">
     <ng-content select="[ruby]"></ng-content>
   </template>
 </md-card>
