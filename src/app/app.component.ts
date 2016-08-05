@@ -33,7 +33,7 @@ import { Footer } from './footer';
 
       <!--pre class="app-state">this.appState.state = {{ appState.state | json }}</pre-->
 
-      <footer></footer>
+      <!--footer></footer-->
     </md-content>
   `
 })
