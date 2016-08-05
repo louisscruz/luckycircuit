@@ -1,0 +1,9 @@
+<h1>Recent Blog Posts</h1>
+<md-card *ngFor="let post of blogPosts | orderBy: 'date'; let i = index">
+  <md-card-subtitle>{{prepareDate(post.date) | date}}</md-card-subtitle>
+  <md-card-title>{{post.title}}</md-card-title>
+  <md-card-content>{{post.summary}}</md-card-content>
+  <md-card-actions>
+    <button md-button [routerLink]="prepareRoute(post.route)">Read</button>
+  </md-card-actions>
+</md-card>

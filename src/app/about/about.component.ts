@@ -1,13 +1,16 @@
-import {Component} from '@angular/core';
-import {FooterComponent} from '../footer';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'about',
-  directives: [FooterComponent],
-  styles: [require('./about.css')],
-  template: require('./about.html')
+  styles: [`
+    md-card{
+      margin: 25px;
+    }
+  `],
+  templateUrl: './about.template.html'
 })
 export class About {
-
-
+  localState;
+  constructor(public route: ActivatedRoute) {}
 }

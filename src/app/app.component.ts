@@ -1,14 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component, ViewEncapsulation, ViewChild} from '@angular/core';
-import {RouteConfig, Router} from '@angular/router-deprecated';
+import { Component, ViewEncapsulation } from '@angular/core';
 
-import {NavbarComponent} from './navbar';
+import { AppState } from './app.service';
 
-import {Home} from './home';
-import {AppState} from './app.service';
-import {RouterActive} from './router-active';
+import { Footer } from './footer';
 
 /*
  * App Component
@@ -16,40 +13,52 @@ import {RouterActive} from './router-active';
  */
 @Component({
   selector: 'app',
-  pipes: [ ],
-  providers: [ ],
-  directives: [ RouterActive, NavbarComponent],
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('normalize.css'),
-    require('./app.css')
+  directives: [Footer],
+  styleUrls: [
+    './app.style.css'
   ],
   template: `
-  <div class="layout">
-    <header>
-      <navbar></navbar>
-    </header>
-    <md-content class="layout-body">
-      <div class="layout-content">
+    <md-content>
+      <md-toolbar color="primary">
+          <span>
+            <a [routerLink]=" ['./' ]">
+              {{ name }}
+            </a>
+          </span>
+          <span class="fill"></span>
+          <a md-button [routerLink]=" ['./about'] ">
+            About
+          </a>
+          <a md-button [routerLink]=" ['./blog'] ">
+            Blog
+          </a>
+      </md-toolbar>
+
+      <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
+
+      <main>
         <router-outlet></router-outlet>
-      </div>
+      </main>
+
+      <!--pre class="app-state">this.appState.state = {{ appState.state | json }}</pre-->
+
+      <footer></footer>
     </md-content>
-  <div>
   `
 })
-@RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') },
-  //{ path: '/algorithms', name: 'Algorithms', loader: () => require('es6-promise!./algorithms/chapters/intro')('Algorithms')},
-  { path: '/algorithms/...', name: 'Algorithms', loader: () => require('es6-promise!./algorithms')('Algorithms')}
-])
 export class App {
+  angularclassLogo = 'assets/img/angularclass-avatar.png';
+  private loading = false;
+  name = 'Lucky Circuit';
 
   constructor(
     public appState: AppState) {
 
+  }
+
+  ngOnInit() {
+    console.log('Initial App State', this.appState.state);
   }
 }
 

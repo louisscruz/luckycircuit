@@ -1,10 +1,26 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'footer',
-  styles: [require('./footer.css')],
-  template: require('./footer.html')
+  styleUrls: [ './footer.style.css' ],
+  templateUrl: './footer.template.html'
 })
-export class FooterComponent {
+export class Footer {
+  private copyright: string;
 
+  constructor() {
+    this.copyright = setCopyrightText();
+
+    function setCopyrightText(): string {
+      let baseYear: number = 2016;
+      let currentYear: number = new Date().getFullYear();
+      let baseText: string = "Copyright Lucky Circuit " + String(baseYear);
+      if (currentYear == baseYear) {
+        return baseText;
+      } else {
+        return baseText + " - " + String(currentYear);
+      }
+    }
+  }
+  
 }

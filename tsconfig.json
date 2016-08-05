@@ -2,83 +2,20 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "noEmitHelpers": true
   },
   "exclude": [
-    "node_modules",
-    "typings/main.d.ts",
-    "typings/main"
-  ],
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "!./node_modules/**/*.ts",
-    "src/custom-typings.d.ts",
-    "typings/browser.d.ts"
+    "node_modules"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "resolveGlobs": true,
-    "forkChecker": true
+    "forkChecker": true,
+    "useWebpackText": true
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  },
-  "files": [
-    "./src/app/about/about.component.ts",
-    "./src/app/about/about.spec.ts",
-    "./src/app/about/index.ts",
-    "./src/app/algorithms/algorithms.component.ts",
-    "./src/app/algorithms/chapters/foundations/getting-started/getting-started.component.ts",
-    "./src/app/algorithms/chapters/foundations/getting-started/index.ts",
-    "./src/app/algorithms/chapters/foundations/role/index.ts",
-    "./src/app/algorithms/chapters/foundations/role/role.component.ts",
-    "./src/app/algorithms/chapters/preface/index.ts",
-    "./src/app/algorithms/chapters/preface/preface.component.ts",
-    "./src/app/algorithms/index.ts",
-    "./src/app/algorithms/sidenav/left-sidenav/index.ts",
-    "./src/app/algorithms/sidenav/left-sidenav/left-sidenav.component.ts",
-    "./src/app/algorithms/sidenav/right-sidenav/index.ts",
-    "./src/app/algorithms/sidenav/right-sidenav/right-sidenav.component.ts",
-    "./src/app/app.component.ts",
-    "./src/app/app.e2e.ts",
-    "./src/app/app.service.ts",
-    "./src/app/app.spec.ts",
-    "./src/app/components/codebox/codebox.component.ts",
-    "./src/app/components/codebox/index.ts",
-    "./src/app/directives/mathjax.directive.ts",
-    "./src/app/footer/footer.component.ts",
-    "./src/app/footer/index.ts",
-    "./src/app/home/home.component.ts",
-    "./src/app/home/home.e2e.ts",
-    "./src/app/home/home.spec.ts",
-    "./src/app/home/index.ts",
-    "./src/app/home/title/index.ts",
-    "./src/app/home/title/title.service.ts",
-    "./src/app/home/title/title.spec.ts",
-    "./src/app/home/x-large/index.ts",
-    "./src/app/home/x-large/x-large.directive.ts",
-    "./src/app/home/x-large/x-large.spec.ts",
-    "./src/app/index.ts",
-    "./src/app/navbar/index.ts",
-    "./src/app/navbar/navbar.component.ts",
-    "./src/app/router-active/index.ts",
-    "./src/app/router-active/router-active.directive.ts",
-    "./src/custom-typings.d.ts",
-    "./src/main.browser.ts",
-    "./src/platform/browser/angular2-material2/index.ts",
-    "./src/platform/browser/directives.ts",
-    "./src/platform/browser/index.ts",
-    "./src/platform/browser/pipes.ts",
-    "./src/platform/browser/providers.ts",
-    "./src/platform/environment.ts",
-    "./src/polyfills.ts",
-    "./src/vendor.ts",
-    "src/custom-typings.d.ts",
-    "typings/browser.d.ts"
-  ]
+  "atom": { "rewriteTsconfig": false }
 }

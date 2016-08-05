@@ -1,0 +1,15 @@
+<md-sidenav-layout class="demo-sidenav-layout">
+  <md-sidenav #sidenav mode="over" opened="true">
+    Blog Posts
+    <br>
+    <button md-button (click)="sidenav.close()">x</button>
+    <br>
+    <button md-button *ngFor="let route of blogRoutes" [routerLink]="prepareRoute(route.route)">{{route.title}}</button>
+  </md-sidenav>
+  <button md-button (click)="sidenav.open()">All Posts</button>
+  <div class="blog-content-container">
+    <div class="blog-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-layout>

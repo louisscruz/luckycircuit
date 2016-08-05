@@ -1,12 +1,16 @@
-var highlight = require('highlight.js');
 import {Component, ContentChild, Input} from '@angular/core';
+
+import { HighlightCode } from '../../directives/highlight/highlight.directive';
 
 @Component({
   selector: 'codebox',
-  styles: [require('./codebox.css')],
-  template: require('./codebox.html')
+  directives: [
+    HighlightCode
+  ],
+  styles: [require('./codebox.style.css')],
+  template: require('./codebox.template.html')
 })
-export class CodeboxComponent {
+export class Codebox {
   private selected: string = 'javascript';
   @ContentChild('javascriptBlock') javascriptBlock;
   @ContentChild('rubyBlock') rubyBlock;
@@ -15,9 +19,5 @@ export class CodeboxComponent {
 
   selectLang(lang: string): void {
     this.selected = lang;
-  }
-  ngAfterViewInit() {
-    console.log(this.rubyBlock.nativeElement);
-    console.log(highlight);
   }
 }
