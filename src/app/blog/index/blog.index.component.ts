@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 
 import { BlogService } from '../blog.service';
-import { OrderByPipe } from '../../pipes/order.pipe';
 
 @Component({
   selector: 'blog-index',
   providers: [
     BlogService
-  ],
-  pipes: [
-    OrderByPipe
   ],
   styleUrls: [ './blog.index.style.css' ],
   templateUrl: './blog.index.template.html'
