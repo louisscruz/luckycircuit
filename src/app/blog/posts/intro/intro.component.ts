@@ -15,5 +15,11 @@ import { MathJaxDirective } from '../../../directives/mathjax/mathjax.directive'
   templateUrl: './intro.template.html'
 })
 export class Intro {
+  private things = [];
+  constructor() {
+    for (let i = 0; i < 10; i++) {
+      this.things.push(i);
+    }
+  }
 
 }

@@ -5,6 +5,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
 
+import { Navbar } from './navbar';
 import { Footer } from './footer';
 
 /*
@@ -14,27 +15,16 @@ import { Footer } from './footer';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  directives: [Footer],
+  directives: [
+    Navbar,
+    Footer,
+  ],
   styleUrls: [
     './app.style.css'
   ],
   template: `
     <md-content>
-      <md-toolbar color="primary">
-          <span>
-            <a [routerLink]=" ['./' ]">
-              {{ name }}
-            </a>
-          </span>
-          <span class="fill"></span>
-          <a md-button [routerLink]=" ['./about'] ">
-            About
-          </a>
-          <a md-button [routerLink]=" ['./blog'] ">
-            Blog
-          </a>
-      </md-toolbar>
-
+      <navbar></navbar>
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
       <main>
@@ -48,7 +38,6 @@ import { Footer } from './footer';
   `
 })
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
   private loading = false;
   name = 'Lucky Circuit';
 
@@ -61,11 +50,3 @@ export class App {
     console.log('Initial App State', this.appState.state);
   }
 }
-
-/*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */
